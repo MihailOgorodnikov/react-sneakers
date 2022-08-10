@@ -1,6 +1,26 @@
-import Card from "./components/Card";
+import Card from "./components/Card/Card";
 import Header from "./components/Header";
 import Drawer from "./components/Drawer";
+
+const arr = [
+  {name: 'Мужские Кроссовки Nike Blazer Mid Suede',
+   price: 12999,
+   imageUrl: '/img/sneakers/1.jpg'
+  },
+  {name: 'Мужские Кроссовки Nike Air Max 270',
+   price: 15600,
+   imageUrl: '/img/sneakers/2.jpg'
+  },
+  {name: 'Мужские Кроссовки Nike Blazer Mid Suede',
+   price: 8499,
+   imageUrl: '/img/sneakers/3.jpg'
+  },
+  {name: 'Кроссовки Puma X Aka Boku Future Rider',
+   price: 8980,
+   imageUrl: '/img/sneakers/4.jpg'
+  }
+
+]
 
 function App() {
   return (
@@ -18,26 +38,11 @@ function App() {
            </div>
         </div>
        
-        <div className="d-flex justify-around">
-          <Card />
-          <div className="card">
-            <div className="favorite">
-              <img src="/img/heart-unliked.svg" alt="unliked" />
-            </div>
-            
-            <img width={133} height={112}  src="/img/sneakers/1.jpg" />
-            <h5>Мужские Кроссовки Nike Blazer Mid Suede</h5>
-            <div className="d-flex justify-between align-center">
-              <div className="d-flex flex-column">
-                <span>Цена:</span>
-                <b>12 999 руб.</b>
-              </div>
-              <button className="button">
-              <img width={11} height={11} src="/img/plus.svg" />
-              </button>
-            </div>
-           </div>
-           
+        <div className="d-flex justify-around">  
+          {arr.map((obj)=>(
+             <Card name={obj.name} price={obj.price} imageUrl={obj.imageUrl} />  
+          ))}
+                  
         </div>
         
       </div>
