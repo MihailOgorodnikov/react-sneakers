@@ -1,23 +1,28 @@
-
+import React from 'react';
 import './Card.module.scss';
 
-function Card (props) {
+function Card ({onFavorite, imageUrl, name, price, onPluse}) {
+    const [isAdded, setIsAdded] = React.useState(false);
+
+    const onClikePluse = () => {
+        onPluse({imageUrl, name, price});
+        setIsAdded(!isAdded);
+    }
+
     return (
         <div className="card">
-            <div className="favorite">
+            <div className="favorite" onClick={onFavorite}>
                 <img src="/img/heart-unliked.svg" alt="unliked" />
             </div>
         
-            <img width={133} height={112}  src={props.imageUrl} />
-            <h5>{props.name}</h5>
+            <img width={133} height={112}  src={imageUrl} />
+            <h5>{name}</h5>
             <div className="d-flex justify-between align-center">
                 <div className="d-flex flex-column">
                     <span>Цена:</span>
-                    <b>{props.price} руб.</b>
+                    <b>{price} руб.</b>
                 </div>
-                <button className="button">
-                    <img width={11} height={11} src="/img/plus.svg" />
-                </button>
+                <img className="button" onClick={onClikePluse} src={isAdded ? "/img/btn-checked.svg" : "/img/btn-plus.svg"} />
             </div>
        </div>
     );

@@ -1,20 +1,22 @@
-function Drawer () {
+function Drawer ({onClose, items = [] }) {
     return (
-      <div style={{display: 'none'}}  className="overlay">
+      <div className="overlay">
           <div className="drawer">
           <h2 className="d-flex justify-between mb-30">Корзина
-            <img className="cu-p" src="/img/btn-remuve.svg" />
+            <img onClick={onClose} className="cu-p" src="/img/btn-remuve.svg" />
           </h2>
 
           <div className="items">
-            <div className="cartItem d-flex align-center mb-20">
-            <img className="mr-20" width={70} height={70} src="/img/sneakers/1.jpg" />
-            <div className="mr-20">
-              <p className="mb-5">Мужские Кроссовки Nike Blazer Mid Suede</p>
-              <b>12 999 руб.</b>
+            {items.map((obj) => (
+              <div className="cartItem d-flex align-center mb-20">
+              <img className="mr-20" width={70} height={70} src={obj.imageUrl} />
+              <div className="mr-20">
+                <p className="mb-5">{obj.name}</p>
+                <b>{obj.price} руб.</b>
+              </div>
+              <img className="remuveBtn" src="/img/btn-remuve.svg" />
             </div>
-            <img className="remuveBtn" src="/img/btn-remuve.svg" />
-          </div>
+            ))}
           
           </div>
           <div className="cartTotalBlock">
