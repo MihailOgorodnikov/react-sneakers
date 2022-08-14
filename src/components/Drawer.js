@@ -13,7 +13,7 @@ function Drawer ({onClose, onRemove, items = [] }) {
               
             <div className="items">
             {items.map((obj) => (
-              <div className="cartItem d-flex align-center mb-20">
+              <div key={obj.id} className="cartItem d-flex align-center mb-20">
               <img className="mr-20" width={70} height={70} src={obj.imageUrl} />
               <div className="mr-20">
                 <p className="mb-5">{obj.name}</p>
@@ -40,9 +40,9 @@ function Drawer ({onClose, onRemove, items = [] }) {
           </div>
             </div> :
           (<div className="cartEmpty d-flex align-center flex-column flex">
-            <img class="mb-20" width={120} height={120} src="/img/empty-column.jpg" alt="" />
+            <img className="mb-20" width={120} height={120} src="/img/empty-column.jpg" alt="" />
             <h2>Корзина пуста</h2>
-            <p class="opacity-6">Добавить хотя бы одну пару кросовок, Чтобы сделать заказ.</p>
+            <p className="opacity-6">Добавить хотя бы одну пару кросовок, Чтобы сделать заказ.</p>
             <button onClick={onClose} class="greenButton">
               <img src="/img/arrow.svg" />
               Вернуться назад
