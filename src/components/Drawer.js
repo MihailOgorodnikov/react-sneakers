@@ -10,6 +10,7 @@ function Drawer ({onClose, onRemove, items = [] }) {
     const [orderId, setOrderId] = React.useState(null);
     const [isOrderComplete, setIsOrderComplete] = React.useState(false);
     const [isLoading, setIsLoading] = React.useState(false);
+    const totalPrise = cartItems.reduce((sum, obj) => obj.price + sum, 0);
 
     const onClikOrder = async () => {
       try {
@@ -60,12 +61,12 @@ function Drawer ({onClose, onRemove, items = [] }) {
                 <li>
                   <span>Итого:</span>
                   <div></div>
-                  <b>21 489 руб.</b>
+                  <b>{totalPrise} руб.</b>
                 </li>
                 <li>
                   <span>Налог 5%</span>
                   <div></div>
-                  <b>1074 руб.</b>
+                  <b>{(totalPrise / 100) * 5} руб.</b>
                 </li>
               </ul>
               <button disabled={isLoading} onClick={onClikOrder} className="greenButton">Оформить заказ <img src="/img/arrow.svg" alt="arrow" /></button>

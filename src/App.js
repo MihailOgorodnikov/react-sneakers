@@ -3,8 +3,10 @@ import { Route } from 'react-router-dom';
 import axios from 'axios';
 import Header from "./components/Header";
 import Drawer from "./components/Drawer";
+
 import Home from './pages/Home';
 import Fevorits from './pages/Favorits';
+import Orders from './pages/Orders';
 
 export const AppContext = React.createContext({});
 
@@ -71,7 +73,7 @@ function App() {
     };
 
   return (
-   <AppContext.Provider value={{items, cartItems, favorits, isItemAdded, onAddToFavorits, setCartOpen, setCartItems}}>
+   <AppContext.Provider value={{items, cartItems, favorits, isItemAdded, onAddToFavorits, onAddToCart, setCartOpen, setCartItems}}>
       <div className="Wrapper clear">
         {cartOpen && <Drawer items = {cartItems} onClose = {() => setCartOpen(false)} onRemove = {onRemoveItem}/>}
         
@@ -93,6 +95,10 @@ function App() {
          
            <Route  path="/favorits" exact>  
             <Fevorits />
+           </Route>
+
+           <Route  path="/orders" exact>  
+            <Orders />
            </Route>
         
     
