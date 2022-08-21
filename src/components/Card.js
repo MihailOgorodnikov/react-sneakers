@@ -5,13 +5,14 @@ import {AppContext} from "../App";
 function Card ({ id, onFavorite, imageUrl, name, price, onPluse, favorited = false, loading=false}) {
     const {isItemAdded} = React.useContext(AppContext);
     const [isFavorit, setIsFavorit] = React.useState(favorited);
+    const obj = {id, parentId: id, imageUrl, name, price};
 
     const onClikePluse = () => {
-        onPluse({id, imageUrl, name, price});
+        onPluse(obj);
     }
 
     const onClikeFavorit = () => {
-        onFavorite({id, imageUrl, name, price});
+        onFavorite(obj);
         setIsFavorit(!isFavorit);
     }
 
