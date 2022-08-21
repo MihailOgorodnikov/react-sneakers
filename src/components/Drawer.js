@@ -37,7 +37,7 @@ function Drawer ({onClose, onRemove, items = [] }) {
       <div className="overlay">
           <div className="drawer">
           <h2 className="d-flex justify-between mb-30">Корзина
-            <img onClick={onClose} className="cu-p" src="/img/btn-remuve.svg" />
+            <img onClick={onClose} className="cu-p" src="img/btn-remuve.svg" />
           </h2>
 
 
@@ -52,7 +52,7 @@ function Drawer ({onClose, onRemove, items = [] }) {
                 <p className="mb-5">{obj.name}</p>
                 <b>{obj.price} руб.</b>
               </div>
-              <img onClick={() => onRemove(obj.id)} className="remuveBtn" src="/img/btn-remuve.svg" />
+              <img onClick={() => onRemove(obj.id)} className="remuveBtn" src="img/btn-remuve.svg" />
             </div>
             ))}
           </div>
@@ -69,12 +69,12 @@ function Drawer ({onClose, onRemove, items = [] }) {
                   <b>{(totalPrise / 100) * 5} руб.</b>
                 </li>
               </ul>
-              <button disabled={isLoading} onClick={onClikOrder} className="greenButton">Оформить заказ <img src="/img/arrow.svg" alt="arrow" /></button>
+              <button disabled={isLoading} onClick={onClikOrder} className="greenButton">Оформить заказ <img src="img/arrow.svg" alt="arrow" /></button>
           </div>
             </div> :
           (<Info 
             title={isOrderComplete ? "Заказ оформлен!" : "Корзина пуста"} 
-            image={isOrderComplete ? "/img/complit-order.jpg" : "/img/empty-column.jpg"} 
+            image={isOrderComplete ? "img/complit-order.jpg" : "img/empty-column.jpg"} 
             description={isOrderComplete ? `Ваш заказ #${orderId} скоро будет передан курьерской доставке` : "Добавить хотя бы одну пару кросовок, Чтобы сделать заказ."}/>
             )
           
