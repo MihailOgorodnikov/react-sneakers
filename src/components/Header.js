@@ -8,7 +8,7 @@ function Header (props) {
 
     return (
         <header className="d-flex justify-between align-center p-40">
-            <Link to="/">
+            <Link to="">
             <div className="d-flex align-center">
                 <img width={40} height={40} src="img/logo.png" />
                 <div>
@@ -23,12 +23,12 @@ function Header (props) {
                     <span>{totalPrise} руб.</span>
                 </li>
                 <li className="mr-10 cu-p">
-                    <Link to="/favorits">
+                    <Link to="favorits">
                         <img width={18} height={18} src="img/heart.svg" />
                     </Link>
                 </li>
                 <li>
-                <Link to="/orders">
+                <Link to="orders">
                         <img width={18} height={18} src="img/user.svg" />
                     </Link>
                 </li>
